@@ -2,10 +2,15 @@
 import { Module } from '@nestjs/common';
 import { CreateCommentController } from './services/CreateCommentController';
 import { CreateCommentUseCase } from './services/CreateCommentUseCase';
+import { UserDatabaseModule } from '../users/database.module';
+import { CommentDatabaseModule } from './database.module';
 
 
 @Module({
-  imports: [],
+  imports: [
+    CommentDatabaseModule,
+    UserDatabaseModule
+  ],
   controllers: [
     CreateCommentController,
 

@@ -12,15 +12,25 @@ export class UserRepositoryPrisma implements IUsersRepository {
     private prisma: PrismaService
   ) {}
   
-  async create(data: CreateUserDTO): Promise<void> {
-    await this.prisma.user.create({
+  async create(data: CreateUserDTO): Promise<User> {
+    const user = await this.prisma.user.create({
       data
     })
+    return user
   }
 
   async list(): Promise<User[]> {
     const users = await this.prisma.user.findMany()
     return users
+  }
+
+  async findByEmail(email: string): Promise<User> {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        email
+      }
+    })
+    return user
   }
   
   
