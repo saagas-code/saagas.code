@@ -1,9 +1,14 @@
+import { DeleteCommentUseCase } from './services/deleteComment/deleteCommentUseCase';
 
 import { Module } from '@nestjs/common';
-import { CreateCommentController } from './services/CreateCommentController';
-import { CreateCommentUseCase } from './services/CreateCommentUseCase';
+
 import { UserDatabaseModule } from '../users/database.module';
 import { CommentDatabaseModule } from './database.module';
+import { CreateCommentController } from './services/createComment/CreateCommentController';
+import { CreateCommentUseCase } from './services/createComment/CreateCommentUseCase';
+import { ListCommentController } from './services/listComment/ListCommentController';
+import { ListCommentUseCase } from './services/listComment/ListCommentUseCase';
+import { DeleteCommentController } from './services/deleteComment/deleteCommentController';
 
 
 @Module({
@@ -13,10 +18,14 @@ import { CommentDatabaseModule } from './database.module';
   ],
   controllers: [
     CreateCommentController,
+    ListCommentController,
+    DeleteCommentController,
 
   ],
   providers: [
     CreateCommentUseCase,
+    ListCommentUseCase,
+    DeleteCommentUseCase
   ],
   exports: []
   

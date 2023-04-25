@@ -1,7 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { CreateCommentDTO } from "../DTO/CreateCommentDTO";
+
 import { IUsersRepository } from "src/modules/users/database/interface/IUsersRepository";
-import { ICommentsRepository } from "../database/interfaces/ICommentsRepository";
+import { ICommentsRepository } from "../../database/interfaces/ICommentsRepository";
+import { CreateCommentDTO } from "../../DTO/CreateCommentDTO";
+
 
 
 

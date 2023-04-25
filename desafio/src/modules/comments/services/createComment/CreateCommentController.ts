@@ -1,6 +1,7 @@
-import { Body, Controller, Get } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import { CreateCommentUseCase } from "./CreateCommentUseCase";
-import { CreateCommentDTO } from "../DTO/CreateCommentDTO";
+import { CreateCommentDTO } from "../../DTO/CreateCommentDTO";
+
 
 @Controller("/comments")
 export class CreateCommentController {
@@ -8,7 +9,7 @@ export class CreateCommentController {
     private createCommentUseCase: CreateCommentUseCase,
   ) {}
 
-  @Get("/")
+  @Post("/")
 
   async handle(@Body() body: CreateCommentDTO): Promise<void> {
     await this.createCommentUseCase.execute(body)

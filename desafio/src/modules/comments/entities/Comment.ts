@@ -6,5 +6,6 @@ export class Comment {
   title: string
   body: string
   user?: User
+  user_id: string
   created_at: Date
 }
